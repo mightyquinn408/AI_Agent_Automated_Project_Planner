@@ -29,6 +29,9 @@ build-backend = "hatchling.build"
 type = "crew"
 project_id = "fc5d85f2-08b0-4765-856d-8166a8785341"
 
+[tool.hatch.build.targets.wheel]
+packages = ["src/project_planning_crew"]
+
 [tool.pytest.ini_options]
 pythonpath = ["src"]
 testpaths = ["tests"]

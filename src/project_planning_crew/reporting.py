@@ -14,10 +14,11 @@ DEFAULT_OUTPUT_DIR = Path("outputs")
 
 
 class ReportPaths(NamedTuple):
-    """Paths written for one crew result."""
+    """Files and client document produced for one crew result."""
 
     markdown: Path
     json: Path
+    document: dict[str, object]
 
 
 def normalize_lines(value: str) -> list[str]:
@@ -109,4 +110,4 @@ def write_reports(
         json.dumps(document, indent=2, ensure_ascii=False) + "\n",
         encoding="utf-8",
     )
-    return ReportPaths(markdown=markdown_path, json=json_path)
+    return ReportPaths(markdown=markdown_path, json=json_path, document=document)

@@ -93,6 +93,34 @@ the multiline crew inputs. `plan` contains the validated tasks, milestones, and
 risks. Clients should branch on `schema_version` instead of parsing the
 Markdown file.
 
+## Deploy to CrewAI AMP
+
+This is a classic CrewAI project: `[tool.crewai] type = "crew"`, a committed
+`uv.lock`, `@CrewBase` in `src/project_planning_crew/crew.py`, and `run()` in
+`src/project_planning_crew/main.py`.
+
+Check the project locally before deploying:
+
+```bash
+uv run crewai deploy validate
+```
+
+`run()` accepts the five project inputs used by the YAML configuration. When
+they are omitted, it uses the included website example. Its return value is
+the same versioned JSON document written to `outputs/project_plan.json`, which
+is what an AMP execution returns to an API client.
+
+Deploy from this directory after authenticating:
+
+```bash
+crewai login
+crewai deploy create
+```
+
+Add `OPENAI_API_KEY` to the deployment's environment variables. Keep the key
+out of git. The local `.env` file is used by `crewai deploy create` to offer
+that variable, but it is not part of the repository.
+
 ## Development
 
 Run the offline checks:

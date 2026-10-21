@@ -77,3 +77,4 @@ def test_reports_include_markdown_and_client_json(tmp_path) -> None:
         "Build pages",
     ]
     assert reports.json.read_text(encoding="utf-8").startswith("{\n  ")
+    assert reports.document == document
