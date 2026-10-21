@@ -1,0 +1,44 @@
+task_breakdown:
+  description: >
+    Analyze the requirements for the {project_type} project and break them into
+    individual tasks. Define each task's scope, deliverable, dependencies, and
+    achievable timeline.
+
+    Project objectives:
+    {project_objectives}
+
+    Project requirements:
+    {project_requirements}
+
+    Available team:
+    {team_members}
+  expected_output: >
+    A comprehensive task breakdown with unique task names, detailed scopes,
+    dependencies, deliverables, and a day-based project timeline.
+
+time_resource_estimation:
+  description: >
+    Evaluate every task in the supplied breakdown for the {project_type}
+    project. Estimate effort in hours and identify the skills and resources
+    required. Use task complexity, dependencies, and the available team to make
+    realistic estimates.
+  expected_output: >
+    A detailed estimation report covering every task, including effort in
+    hours, required skills or resources, assumptions, and a summary of risks
+    and uncertainties.
+
+resource_allocation:
+  description: >
+    Combine the task breakdown and estimates into one internally consistent
+    plan for the {project_type} project. Assign only people listed below and
+    keep each assignment consistent with the person's stated role. Balance
+    workloads, honor dependencies, and explain every assignment.
+
+    Available team:
+    {team_members}
+  expected_output: >
+    A ProjectPlan containing all scheduled tasks. Every task must include a
+    unique name, detailed description, positive estimated hours, one or more
+    assigned team members copied exactly from the available team, dependency
+    task names, integer start and end project days, and allocation rationale.
+    Include milestones referencing task names and a list of important risks.

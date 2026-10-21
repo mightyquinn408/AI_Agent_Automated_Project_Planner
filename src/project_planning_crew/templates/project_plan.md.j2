@@ -1,0 +1,69 @@
+# {{ project.project_type }} project plan
+
+{{ project.project_objectives }}
+
+Generated: {{ generated_at }}
+
+## Summary
+
+- Tasks: {{ summary.task_count }}
+- Estimated hours: {{ summary.total_hours | hours }}
+- Milestones: {{ summary.milestone_count }}
+- Schedule: day {{ summary.start_day }} through day {{ summary.end_day }}
+- Industry: {{ project.industry }}
+
+## Team
+
+{% for member in project.team_members %}
+- {{ member }}
+{% endfor %}
+
+## Requirements
+
+{% for requirement in project.project_requirements %}
+- {{ requirement }}
+{% endfor %}
+
+## Tasks
+
+{% for task in plan.tasks %}
+### {{ task.task_name }}
+
+{{ task.description }}
+
+- Estimated hours: {{ task.estimated_time_hours | hours }}
+- Schedule: day {{ task.start_day }} through day {{ task.end_day }}
+- Assigned to:
+{% for member in task.assigned_team_members %}
+  - {{ member }}
+{% endfor %}
+- Dependencies:
+{% if task.dependencies %}
+{% for dependency in task.dependencies %}
+  - {{ dependency }}
+{% endfor %}
+{% else %}
+  - None
+{% endif %}
+- Allocation rationale: {{ task.allocation_rationale }}
+
+{% endfor %}
+## Milestones
+
+{% for milestone in plan.milestones %}
+### {{ milestone.milestone_name }}
+
+{% for task_name in milestone.tasks %}
+- {{ task_name }}
+{% endfor %}
+
+{% endfor %}
+## Risks
+
+{% if plan.risks %}
+{% for risk in plan.risks %}
+- {{ risk }}
+{% endfor %}
+{% else %}
+- None identified.
+{% endif %}
