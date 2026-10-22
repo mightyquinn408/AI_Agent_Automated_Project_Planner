@@ -33,7 +33,7 @@ Never commit `.env`.
 
 ## Run
 
-Run the included website-planning example:
+Run the included mobile-app planning example:
 
 ```bash
 uv run crewai run
@@ -74,11 +74,11 @@ A successful run overwrites these files:
   "schema_version": "1.0",
   "generated_at": "2026-10-21T17:46:00Z",
   "project": {
-    "project_type": "Website",
-    "project_objectives": "Create a website for a small business",
+    "project_type": "Cross-platform mobile app",
+    "project_objectives": "Build a full-featured iOS client for this planning crew",
     "industry": "Technology",
-    "team_members": ["John Doe (Project Manager)"],
-    "project_requirements": ["Create a responsive design"]
+    "team_members": ["Jane Doe (Software Engineer)"],
+    "project_requirements": ["Load the plan from JSON shipped in the app"]
   },
   "plan": {
     "tasks": [],
